@@ -5,11 +5,10 @@ export function getBaseManifest() {
     const icon48="icons/icon-48.png"
     const icon96="icons/icon-96.png"
     const icon128="icons/icon-128.png"
-    return {
+    const baseManifest: any = {
         name: pkg.displayName,
         description: pkg.description,
         version: pkg.version,
-        homepage_url:pkg.homepage,
         author: pkg.author,
         default_locale: "en",
         icons: {
@@ -26,6 +25,10 @@ export function getBaseManifest() {
             open_in_tab: true,
         },
     }
+    if (pkg.homepage && pkg.homepage.trim().length > 0) {
+        baseManifest.homepage_url = pkg.homepage
+    }
+    return baseManifest
 }
 
 
