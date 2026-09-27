@@ -1,0 +1,11 @@
+
+export interface DownloadRequestItem {
+    link: string
+    downloadPage: string | null
+    headers: DownloadRequestHeaders | null
+    description: string | null,
+    suggestedName: string | null,
+    type: "hls" | "http" | "yt-dlp"
+    ytCookies?: string | null
+}
+export type DownloadRequestHeaders = Record<string, string>

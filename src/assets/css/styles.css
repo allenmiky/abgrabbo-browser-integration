@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #2b2b2b;
+    --panel: #2e2e2e;
+    --side: #262626;
+    --bar: #353535;
+    --line: #404040;
+    --text: #e6e6e6;
+    --dim: #93939a;
+    --a: #2f7bf2;
+    --a2: #4a8df6;
+    --sel: #2f6fe0;
+    --ok: #32d74b;
+    --ctl: #1f1f1f;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "JetBrains Mono", "Fira Code", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Custom Grabbo Titlebar */
+.grabbo-titlebar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 36px;
+  padding: 0 12px;
+  background: linear-gradient(#3a3a3a, #303030);
+  border-bottom: 1px solid #000;
+  user-select: none;
+}
+
+.grabbo-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.grabbo-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Buttons matching User Theme */
+.btn, button.btn {
+  font-family: inherit !important;
+  border-radius: 4px !important;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+  transition: all 0.15s ease !important;
+}
+
+.btn-primary {
+  background: var(--a) !important;
+  border-color: #0006 !important;
+  color: #ffffff !important;
+}
+
+.btn-primary:hover {
+  background: var(--a2) !important;
+  filter: brightness(1.12);
+}
+
+.btn-secondary {
+  background: #4a4a4a !important;
+  border: 1px solid #0006 !important;
+  color: var(--text) !important;
+}
+
+.btn-secondary:hover {
+  filter: brightness(1.15);
+  background: #555555 !important;
+}
+
+/* Sleek Checkbox Toggle */
+input[type=checkbox].checkbox, .checkbox {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 32px !important;
+  height: 18px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 9px !important;
+  background: #5a5a5a !important;
+  position: relative !important;
+  cursor: pointer !important;
+  vertical-align: middle !important;
+  flex: none !important;
+  transition: background 0.15s ease !important;
+}
+
+input[type=checkbox].checkbox:after, .checkbox:after {
+  content: "" !important;
+  position: absolute !important;
+  top: 2px !important;
+  left: 2px !important;
+  width: 14px !important;
+  height: 14px !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+  transition: transform 0.15s ease !important;
+}
+
+input[type=checkbox].checkbox:checked, .checkbox:checked {
+  background: var(--a) !important;
+}
+
+input[type=checkbox].checkbox:checked:after, .checkbox:checked:after {
+  transform: translateX(14px) !important;
+}
+
+/* Input, select, textarea styling */
+input:not([type=checkbox]), select, textarea {
+  font-family: inherit !important;
+  font-size: 12px !important;
+  color: var(--text) !important;
+  background: var(--ctl) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 4px !important;
+  padding: 4px 8px !important;
+  outline: 0 !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--a) !important;
+  box-shadow: 0 0 0 2px rgba(47, 123, 242, 0.45) !important;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--side);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
